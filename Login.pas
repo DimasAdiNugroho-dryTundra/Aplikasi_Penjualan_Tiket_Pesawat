@@ -4,10 +4,19 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, StdCtrls, Grids, DBGrids;
 
 type
-  TForm1 = class(TForm)
+  TformLogin = class(TForm)
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    txtUsername: TEdit;
+    txtPassword: TEdit;
+    btnLogin: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -15,10 +24,35 @@ type
   end;
 
 var
-  Form1: TForm1;
+  formLogin: TformLogin;
 
 implementation
 
+uses
+  Connection,
+  MainMenu;
+
 {$R *.dfm}
+
+procedure TformLogin.FormCreate(Sender: TObject);
+begin
+Position := poScreenCenter;
+end;
+
+procedure TformLogin.btnLoginClick(Sender: TObject);
+begin
+    formConnection.zqLogin.SQL.Text := 'SELECT * FROM pengguna WHERE username = :username AND password = :password';
+    formConnection.zqLogin.ParamByName('username').AsString := txtUsername.Text;
+    formConnection.zqLogin.ParamByName('password').AsString := txtPassword.Text;
+    formConnection.zqLogin.Open;
+
+    if not formConnection.zqLogin.IsEmpty then
+    begin
+      ShowMessage('Login berhasil!');
+      formMainMenu.Show;
+    end
+    else
+      ShowMessage('Login gagal!');
+end;
 
 end.

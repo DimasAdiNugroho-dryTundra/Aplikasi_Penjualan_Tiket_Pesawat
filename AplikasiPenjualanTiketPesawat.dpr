@@ -2,12 +2,16 @@ program AplikasiPenjualanTiketPesawat;
 
 uses
   Forms,
-  Login in 'Login.pas' {Form1};
+  Login in 'Login.pas' {formLogin},
+  Connection in 'Connection.pas' {formConnection},
+  MainMenu in 'MainMenu.pas' {formMainMenu};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TformLogin, formLogin);
+  Application.CreateForm(TformConnection, formConnection);
+  Application.CreateForm(TformMainMenu, formMainMenu);
   Application.Run;
 end.
