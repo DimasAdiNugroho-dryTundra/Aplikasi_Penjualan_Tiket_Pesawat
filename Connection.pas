@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, StdCtrls,
-  ZAbstractConnection, ZConnection;
+  ZAbstractConnection, ZConnection, frxClass, frxDBSet;
 
 type
   TformConnection = class(TForm)
@@ -13,6 +13,14 @@ type
     GroupBox1: TGroupBox;
     dsLogin: TDataSource;
     zqLogin: TZQuery;
+    GroupBox2: TGroupBox;
+    dsLaporan: TDataSource;
+    zqLaporan: TZQuery;
+    frxRptLaporan: TfrxReport;
+    frxDsLaporan: TfrxDBDataset;
+    GroupBox3: TGroupBox;
+    dsDataMaskapai: TDataSource;
+    zqDataMaskapai: TZQuery;
   private
     { Private declarations }
   public
