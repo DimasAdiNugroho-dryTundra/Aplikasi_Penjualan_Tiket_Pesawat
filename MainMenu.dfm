@@ -29,7 +29,7 @@ object formMainMenu: TformMainMenu
   end
   object btnFormDataMaskapai: TButton
     Left = 64
-    Top = 144
+    Top = 184
     Width = 177
     Height = 49
     Caption = 'DATA MASKAPAI'
@@ -44,7 +44,7 @@ object formMainMenu: TformMainMenu
   end
   object Button4: TButton
     Left = 64
-    Top = 216
+    Top = 256
     Width = 177
     Height = 49
     Caption = 'LAPORAN'
@@ -70,5 +70,20 @@ object formMainMenu: TformMainMenu
     ParentFont = False
     TabOrder = 2
     OnClick = btnExitClick
+  end
+  object btnFormDataPelanggan: TButton
+    Left = 64
+    Top = 112
+    Width = 177
+    Height = 49
+    Caption = 'DATA PELANGGAN'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = btnFormDataPelangganClick
   end
 end

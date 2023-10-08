@@ -5,7 +5,8 @@ uses
   Login in 'Login.pas' {formLogin},
   Connection in 'Connection.pas' {formConnection},
   MainMenu in 'MainMenu.pas' {formMainMenu},
-  DataMaskapai in 'DataMaskapai.pas' {formDataMaskapai};
+  DataMaskapai in 'DataMaskapai.pas' {formDataMaskapai},
+  DataPelanggan in 'DataPelanggan.pas' {formDataPelanggan};
 
 {$R *.res}
 
@@ -15,5 +16,6 @@ begin
   Application.CreateForm(TformConnection, formConnection);
   Application.CreateForm(TformMainMenu, formMainMenu);
   Application.CreateForm(TformDataMaskapai, formDataMaskapai);
+  Application.CreateForm(TformDataPelanggan, formDataPelanggan);
   Application.Run;
 end.

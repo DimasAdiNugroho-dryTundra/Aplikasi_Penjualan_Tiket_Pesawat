@@ -37,6 +37,14 @@ object formConnection: TformConnection
     Caption = 'formDataMaskapai'
     TabOrder = 2
   end
+  object GroupBox4: TGroupBox
+    Left = 432
+    Top = 72
+    Width = 185
+    Height = 105
+    Caption = 'formDataPelanggan'
+    TabOrder = 3
+  end
   object ZConnection: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -227,6 +235,20 @@ object formConnection: TformConnection
       'SELECT * FROM maskapai')
     Params = <>
     Left = 344
+    Top = 104
+  end
+  object dsDataPelanggan: TDataSource
+    DataSet = zqDataPelanggan
+    Left = 464
+    Top = 104
+  end
+  object zqDataPelanggan: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM pelanggan')
+    Params = <>
+    Left = 552
     Top = 104
   end
 end

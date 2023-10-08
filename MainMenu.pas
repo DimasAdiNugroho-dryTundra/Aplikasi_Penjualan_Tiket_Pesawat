@@ -12,9 +12,11 @@ type
     btnFormDataMaskapai: TButton;
     Button4: TButton;
     btnExit: TButton;
+    btnFormDataPelanggan: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnFormDataMaskapaiClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
+    procedure btnFormDataPelangganClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,7 +28,9 @@ var
 
 implementation
 
-uses DataMaskapai;
+uses
+  DataMaskapai,
+  DataPelanggan;
 
 {$R *.dfm}
 
@@ -44,6 +48,12 @@ end;
 procedure TformMainMenu.btnExitClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TformMainMenu.btnFormDataPelangganClick(Sender: TObject);
+begin
+  formDataPelanggan.Show;
+  formMainMenu.Hide;
 end;
 
 end.

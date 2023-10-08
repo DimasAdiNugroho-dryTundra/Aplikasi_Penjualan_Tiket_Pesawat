@@ -21,6 +21,9 @@ type
     GroupBox3: TGroupBox;
     dsDataMaskapai: TDataSource;
     zqDataMaskapai: TZQuery;
+    GroupBox4: TGroupBox;
+    dsDataPelanggan: TDataSource;
+    zqDataPelanggan: TZQuery;
   private
     { Private declarations }
   public
