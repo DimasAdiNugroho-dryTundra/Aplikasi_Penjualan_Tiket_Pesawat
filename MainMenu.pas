@@ -9,14 +9,17 @@ uses
 type
   TformMainMenu = class(TForm)
     Label1: TLabel;
-    btnFormDataMaskapai: TButton;
     Button4: TButton;
     btnExit: TButton;
+    btnFormTransaksi: TButton;
+    GroupBox1: TGroupBox;
+    btnFormDataMaskapai: TButton;
     btnFormDataPelanggan: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnFormDataMaskapaiClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure btnFormDataPelangganClick(Sender: TObject);
+    procedure btnFormTransaksiClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +33,8 @@ implementation
 
 uses
   DataMaskapai,
-  DataPelanggan;
+  DataPelanggan,
+  Transaksi;
 
 {$R *.dfm}
 
@@ -53,6 +57,12 @@ end;
 procedure TformMainMenu.btnFormDataPelangganClick(Sender: TObject);
 begin
   formDataPelanggan.Show;
+  formMainMenu.Hide;
+end;
+
+procedure TformMainMenu.btnFormTransaksiClick(Sender: TObject);
+begin
+  formTransaksi.Show;
   formMainMenu.Hide;
 end;
 

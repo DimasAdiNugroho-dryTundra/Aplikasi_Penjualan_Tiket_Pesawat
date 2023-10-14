@@ -45,6 +45,14 @@ object formConnection: TformConnection
     Caption = 'formDataPelanggan'
     TabOrder = 3
   end
+  object GroupBox5: TGroupBox
+    Left = 224
+    Top = 200
+    Width = 393
+    Height = 153
+    Caption = 'Transaksi'
+    TabOrder = 4
+  end
   object ZConnection: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -85,7 +93,6 @@ object formConnection: TformConnection
   end
   object zqLaporan: TZQuery
     Connection = ZConnection
-    Active = True
     SQL.Strings = (
       'SELECT '
       '    laporan.id_invoice,'
@@ -250,5 +257,76 @@ object formConnection: TformConnection
     Params = <>
     Left = 552
     Top = 104
+  end
+  object dsTransaksi: TDataSource
+    DataSet = zqTransaksi
+    Left = 248
+    Top = 296
+  end
+  object zqTransaksi: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT '
+      '    transaksi.id_transaksi,'
+      '    laporan.id_laporan, '
+      '    transaksi.tanggal,'
+      '    transaksi.no_tiket,'
+      '    pelanggan.nm_pelanggan AS nama, '
+      '    maskapai.nm_maskapai AS maskapai,'
+      '    maskapai.rute,'
+      '    transaksi.berangkat,'
+      '    transaksi.tiba,'
+      '    maskapai.harga_jual AS harga,'
+      '    laporan.Jumlah AS jumlah_pesanan,'
+      '    (maskapai.harga_jual * laporan.Jumlah) AS total_harga,'
+      'pelanggan.id_pelanggan, maskapai.id_maskapai'
+      'FROM '
+      '    transaksi'
+      'JOIN '
+      '    pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan'
+      'JOIN '
+      '    maskapai ON transaksi.id_maskapai = maskapai.id_maskapai'
+      'JOIN'
+      #9'laporan ON transaksi.id_transaksi = laporan.id_transaksi'
+      'ORDER BY'
+      #9'transaksi.id_transaksi ASC;')
+    Params = <>
+    Left = 248
+    Top = 232
+  end
+  object zqIdMskp: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT'
+      'id_maskapai, nm_maskapai AS nama_maskapai, harga_jual AS harga'
+      'FROM'
+      'maskapai')
+    Params = <>
+    Left = 408
+    Top = 232
+  end
+  object zqIdPlg: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT'
+      'id_pelanggan, nm_pelanggan AS nama_pelanggan'
+      'FROM'
+      'pelanggan')
+    Params = <>
+    Left = 328
+    Top = 232
+  end
+  object dsIdPlg: TDataSource
+    DataSet = zqIdPlg
+    Left = 328
+    Top = 296
+  end
+  object dsIdMskp: TDataSource
+    DataSet = zqIdMskp
+    Left = 408
+    Top = 296
   end
 end

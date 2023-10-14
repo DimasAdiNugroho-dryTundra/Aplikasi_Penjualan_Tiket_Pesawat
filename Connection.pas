@@ -24,6 +24,13 @@ type
     GroupBox4: TGroupBox;
     dsDataPelanggan: TDataSource;
     zqDataPelanggan: TZQuery;
+    GroupBox5: TGroupBox;
+    dsTransaksi: TDataSource;
+    zqTransaksi: TZQuery;
+    zqIdMskp: TZQuery;
+    zqIdPlg: TZQuery;
+    dsIdPlg: TDataSource;
+    dsIdMskp: TDataSource;
   private
     { Private declarations }
   public
