@@ -9,7 +9,7 @@ uses
 type
   TformMainMenu = class(TForm)
     Label1: TLabel;
-    Button4: TButton;
+    btnLaporan: TButton;
     btnExit: TButton;
     btnFormTransaksi: TButton;
     GroupBox1: TGroupBox;
@@ -20,6 +20,7 @@ type
     procedure btnExitClick(Sender: TObject);
     procedure btnFormDataPelangganClick(Sender: TObject);
     procedure btnFormTransaksiClick(Sender: TObject);
+    procedure btnLaporanClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +33,7 @@ var
 implementation
 
 uses
+  Connection,
   DataMaskapai,
   DataPelanggan,
   Transaksi;
@@ -64,6 +66,11 @@ procedure TformMainMenu.btnFormTransaksiClick(Sender: TObject);
 begin
   formTransaksi.Show;
   formMainMenu.Hide;
+end;
+
+procedure TformMainMenu.btnLaporanClick(Sender: TObject);
+begin
+  formConnection.frxRptLaporan.ShowReport();
 end;
 
 end.

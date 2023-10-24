@@ -27,7 +27,7 @@ object formMainMenu: TformMainMenu
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Button4: TButton
+  object btnLaporan: TButton
     Left = 400
     Top = 184
     Width = 177
@@ -40,6 +40,7 @@ object formMainMenu: TformMainMenu
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    OnClick = btnLaporanClick
   end
   object btnExit: TButton
     Left = 400

@@ -15,6 +15,7 @@ type
     txtUsername: TEdit;
     txtPassword: TEdit;
     btnLogin: TButton;
+    lblGetID: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
   private
@@ -40,6 +41,7 @@ Position := poScreenCenter;
 end;
 
 procedure TformLogin.btnLoginClick(Sender: TObject);
+var userid : string;
 begin
     formConnection.zqLogin.SQL.Text := 'SELECT * FROM pengguna WHERE username = :username AND password = :password';
     formConnection.zqLogin.ParamByName('username').AsString := txtUsername.Text;
@@ -48,6 +50,8 @@ begin
 
     if not formConnection.zqLogin.IsEmpty then
     begin
+      userid := formConnection.zqLogin.FieldValues['id_pengguna'];
+      lblGetID.Caption := userid;
       ShowMessage('Login berhasil!');
       formMainMenu.Show;
     end

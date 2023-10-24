@@ -41,6 +41,7 @@ type
     btnUbah: TButton;
     btnBatal: TButton;
     btnBackToMM: TButton;
+    txtGetIDPengguna: TEdit;
     procedure btnTambahClick(Sender: TObject);
     procedure dgPelangganCellClick(Column: TColumn);
     procedure dgMaskapaiCellClick(Column: TColumn);
@@ -48,6 +49,7 @@ type
     procedure btnUbahClick(Sender: TObject);
     procedure btnHapusClick(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,11 +59,13 @@ type
 var
   formTransaksi: TformTransaksi;
   //Tanggal: TDateTime;
+  userid :string;
 
 implementation
 
 uses
   Connection,
+  Login,
   MainMenu;
 
 {$R *.dfm}
@@ -69,10 +73,11 @@ uses
 procedure TformTransaksi.btnTambahClick(Sender: TObject);
 var
   Tanggal: TDateTime;
-  IDTransaksi, IDLaporan, IDPelanggan, NoTiket, IDMskp, Berangkat, Tiba, jumlah: string;
+  IDTransaksi, IDLaporan, IDPelanggan, IDPengguna, NoTiket, IDMskp, Berangkat, Tiba, jumlah: string;
 begin
   IDTransaksi := txtIDTransaksi.Text;
   IDLaporan := txtIDLaporan.Text;
+  IDPengguna := txtGetIDPengguna.Text;
   Tanggal := dtpTanggal.Date;
   IDPelanggan := txtGetIDPlg.Text;
   NoTiket := txtNoTiket.Text;
@@ -93,9 +98,10 @@ begin
   formConnection.zqTransaksi.ExecSQL;
 
   formConnection.zqTransaksi.SQL.Clear;
-  formConnection.zqTransaksi.SQL.Add('INSERT INTO laporan (id_laporan, id_transaksi, Jumlah) VALUES (:IDLaporan, :IDTransaksi, :jumlah);');
+  formConnection.zqTransaksi.SQL.Add('INSERT INTO laporan (id_laporan, id_transaksi, id_pengguna, Jumlah) VALUES (:IDLaporan, :IDTransaksi, :jumlah);');
   formConnection.zqTransaksi.ParamByName('IDLaporan').AsString := IDLaporan;
   formConnection.zqTransaksi.ParamByName('IDTransaksi').AsString := IDTransaksi;
+  formConnection.zqTransaksi.ParamByName('IDPengguna').AsString := IDPengguna;
   formConnection.zqTransaksi.ParamByName('Jumlah').AsString := jumlah;
   formConnection.zqTransaksi.ExecSQL;
 
@@ -105,10 +111,10 @@ end;
 procedure TformTransaksi.btnUbahClick(Sender: TObject);
 var
   Tanggal: TDateTime;
-  IDTransaksi, IDLaporan, IDPelanggan, NoTiket, IDMskp, Berangkat, Tiba, Jumlah: string;
+  IDTransaksi, IDLaporan, IDPelanggan, IDPengguna, NoTiket, IDMskp, Berangkat, Tiba, Jumlah: string;
 begin
   IDTransaksi := txtIDTransaksi.Text;
-
+  IDPengguna := txtGetIDPengguna.Text;
   Tanggal := dtpTanggal.Date;
   IDPelanggan := txtGetIDPlg.Text;
   IDLaporan := txtIDLaporan.Text;
@@ -131,9 +137,10 @@ begin
   formConnection.zqTransaksi.ExecSQL;
 
   formConnection.zqTransaksi.SQL.Clear;
-  formConnection.zqTransaksi.SQL.Add('UPDATE laporan SET id_laporan = :IDLaporan, id_transaksi = :IDTransaksi, Jumlah = :Jumlah WHERE id_laporan = :IDLaporan');
+  formConnection.zqTransaksi.SQL.Add('UPDATE laporan SET id_laporan = :IDLaporan, id_transaksi = :IDTransaksi, id_pengguna = :IDPengguna, Jumlah = :Jumlah WHERE id_laporan = :IDLaporan');
   formConnection.zqTransaksi.ParamByName('IDLaporan').AsString := IDLaporan;
   formConnection.zqTransaksi.ParamByName('IDTransaksi').AsString := IDTransaksi;
+  formConnection.zqTransaksi.ParamByName('IDPengguna').AsString := IDPengguna;
   formConnection.zqTransaksi.ParamByName('Jumlah').AsString := jumlah;
   formConnection.zqTransaksi.ExecSQL;
 
@@ -188,6 +195,12 @@ procedure TformTransaksi.btnBackToMMClick(Sender: TObject);
 begin
   formTransaksi.Hide;
   formMainMenu.Show;
+end;
+
+procedure TformTransaksi.FormActivate(Sender: TObject);
+begin
+  userid := formLogin.lblGetID.Caption;
+  txtGetIDPengguna.Text := userid;
 end;
 
 end.

@@ -53,6 +53,12 @@ object formLogin: TformLogin
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object lblGetID: TLabel
+    Left = 368
+    Top = 208
+    Width = 3
+    Height = 13
+  end
   object DBGrid1: TDBGrid
     Left = 80
     Top = 336
@@ -65,6 +71,7 @@ object formLogin: TformLogin
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Visible = False
   end
   object txtUsername: TEdit
     Left = 160

@@ -11,6 +11,7 @@ object formTransaksi: TformTransaksi
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -237,7 +238,7 @@ object formTransaksi: TformTransaksi
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      Text = 'inv000'
+      Text = 'lpr000'
     end
     object dtpBerangkat: TDateTimePicker
       Left = 480
@@ -473,5 +474,12 @@ object formTransaksi: TformTransaksi
     ParentFont = False
     TabOrder = 7
     OnClick = btnBackToMMClick
+  end
+  object txtGetIDPengguna: TEdit
+    Left = 888
+    Top = 464
+    Width = 121
+    Height = 21
+    TabOrder = 8
   end
 end
