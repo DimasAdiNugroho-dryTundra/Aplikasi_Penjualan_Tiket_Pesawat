@@ -1,6 +1,6 @@
 object formLogin: TformLogin
-  Left = 267
-  Top = 117
+  Left = 437
+  Top = 154
   Width = 514
   Height = 540
   Caption = 'APLIKASI PENJUALAN TIKET PESAWAT'
@@ -58,6 +58,7 @@ object formLogin: TformLogin
     Top = 208
     Width = 3
     Height = 13
+    Visible = False
   end
   object DBGrid1: TDBGrid
     Left = 80

@@ -31,6 +31,8 @@ type
     zqIdPlg: TZQuery;
     dsIdPlg: TDataSource;
     dsIdMskp: TDataSource;
+    frxDsTransaksi: TfrxDBDataset;
+    frxRptTransaksi: TfrxReport;
   private
     { Private declarations }
   public

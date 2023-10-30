@@ -42,6 +42,7 @@ type
     btnBatal: TButton;
     btnBackToMM: TButton;
     txtGetIDPengguna: TEdit;
+    Button1: TButton;
     procedure btnTambahClick(Sender: TObject);
     procedure dgPelangganCellClick(Column: TColumn);
     procedure dgMaskapaiCellClick(Column: TColumn);
@@ -50,6 +51,7 @@ type
     procedure btnHapusClick(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -201,6 +203,11 @@ procedure TformTransaksi.FormActivate(Sender: TObject);
 begin
   userid := formLogin.lblGetID.Caption;
   txtGetIDPengguna.Text := userid;
+end;
+
+procedure TformTransaksi.Button1Click(Sender: TObject);
+begin
+  formConnection.frxRptTransaksi.ShowReport();
 end;
 
 end.
