@@ -41,6 +41,21 @@ type
     zqCetakTiket: TZQuery;
     frxRptCetakTiket: TfrxReport;
     frxDsCetakTiket: TfrxDBDataset;
+    GroupBox8: TGroupBox;
+    dsDaftarPelanggan: TDataSource;
+    zqDaftarPlg: TZQuery;
+    frxRptDaftarPlg: TfrxReport;
+    frxDsDaftarPlg: TfrxDBDataset;
+    GroupBox9: TGroupBox;
+    dsDaftarMskp: TDataSource;
+    zqDaftarMskp: TZQuery;
+    frxRptDaftarMskp: TfrxReport;
+    frxDsDaftarMskp: TfrxDBDataset;
+    GroupBox10: TGroupBox;
+    dsDaftarPggn: TDataSource;
+    zqDaftarPggn: TZQuery;
+    frxRptDaftarPggn: TfrxReport;
+    frxDsDaftarPggn: TfrxDBDataset;
   private
     { Private declarations }
   public

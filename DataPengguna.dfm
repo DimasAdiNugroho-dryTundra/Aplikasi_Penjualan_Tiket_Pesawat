@@ -16,7 +16,7 @@ object formDataPengguna: TformDataPengguna
   TextHeight = 13
   object dgDataPengguna: TDBGrid
     Left = 40
-    Top = 272
+    Top = 296
     Width = 593
     Height = 120
     DataSource = formConnection.dsDataPengguna
@@ -183,7 +183,7 @@ object formDataPengguna: TformDataPengguna
   end
   object btnBackToMM: TButton
     Left = 416
-    Top = 208
+    Top = 232
     Width = 217
     Height = 49
     Caption = 'Kembali ke Main Menu'
@@ -195,5 +195,20 @@ object formDataPengguna: TformDataPengguna
     ParentFont = False
     TabOrder = 6
     OnClick = btnBackToMMClick
+  end
+  object btnCetakDaftarPgn: TButton
+    Left = 416
+    Top = 168
+    Width = 217
+    Height = 49
+    Caption = 'Cetak Daftar Pengguna'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+    OnClick = btnCetakDaftarPgnClick
   end
 end

@@ -25,6 +25,7 @@ type
     btnUbah: TButton;
     btnBatal: TButton;
     btnBackToMM: TButton;
+    btnCetakDaftarMskp: TButton;
     procedure FormCreate(Sender: TObject);
     procedure dgMaskapaiCellClick(Column: TColumn);
     procedure btnTambahClick(Sender: TObject);
@@ -32,6 +33,7 @@ type
     procedure btnHapusClick(Sender: TObject);
     procedure btnBatalClick(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
+    procedure btnCetakDaftarMskpClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -132,6 +134,11 @@ procedure TformDataMaskapai.btnBackToMMClick(Sender: TObject);
 begin
   formDataMaskapai.Hide;
   formMainMenu.Show;
+end;
+
+procedure TformDataMaskapai.btnCetakDaftarMskpClick(Sender: TObject);
+begin
+  formConnection.frxRptDaftarMskp.ShowReport();
 end;
 
 end.

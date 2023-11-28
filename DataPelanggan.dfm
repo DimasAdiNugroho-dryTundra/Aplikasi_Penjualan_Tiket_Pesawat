@@ -2,8 +2,8 @@ object formDataPelanggan: TformDataPelanggan
   Left = 192
   Top = 125
   Width = 718
-  Height = 481
-  Caption = 'formDataPelanggan'
+  Height = 512
+  Caption = 'Data Pelanggan'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -165,7 +165,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object dgDataPelanggan: TDBGrid
     Left = 32
-    Top = 288
+    Top = 312
     Width = 625
     Height = 120
     DataSource = formConnection.dsDataPelanggan
@@ -239,7 +239,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnBackToMM: TButton
     Left = 440
-    Top = 224
+    Top = 248
     Width = 217
     Height = 49
     Caption = 'Kembali ke Main Menu'
@@ -251,5 +251,20 @@ object formDataPelanggan: TformDataPelanggan
     ParentFont = False
     TabOrder = 6
     OnClick = btnBackToMMClick
+  end
+  object btnCetakDaftarPlg: TButton
+    Left = 440
+    Top = 184
+    Width = 217
+    Height = 49
+    Caption = 'Cetak Daftar Pelanggan'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+    OnClick = btnCetakDaftarPlgClick
   end
 end

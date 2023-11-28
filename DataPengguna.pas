@@ -21,6 +21,7 @@ type
     btnUbah: TButton;
     btnBatal: TButton;
     btnBackToMM: TButton;
+    btnCetakDaftarPgn: TButton;
     procedure btnTambahClick(Sender: TObject);
     procedure btnUbahClick(Sender: TObject);
     procedure btnHapusClick(Sender: TObject);
@@ -28,6 +29,7 @@ type
     procedure dgDataPenggunaCellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
+    procedure btnCetakDaftarPgnClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -123,6 +125,11 @@ procedure TformDataPengguna.btnBackToMMClick(Sender: TObject);
 begin
   formDataPengguna.Hide;
   formMainMenu.Show;
+end;
+
+procedure TformDataPengguna.btnCetakDaftarPgnClick(Sender: TObject);
+begin
+  formConnection.frxRptDaftarPggn.ShowReport();
 end;
 
 end.
