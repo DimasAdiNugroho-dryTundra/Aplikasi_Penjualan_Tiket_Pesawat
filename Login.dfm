@@ -2,7 +2,7 @@ object formLogin: TformLogin
   Left = 437
   Top = 154
   Width = 514
-  Height = 540
+  Height = 365
   Caption = 'APLIKASI PENJUALAN TIKET PESAWAT'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -60,20 +60,6 @@ object formLogin: TformLogin
     Height = 13
     Visible = False
   end
-  object DBGrid1: TDBGrid
-    Left = 80
-    Top = 336
-    Width = 320
-    Height = 120
-    DataSource = formConnection.dsLogin
-    TabOrder = 0
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    Visible = False
-  end
   object txtUsername: TEdit
     Left = 160
     Top = 112
@@ -85,7 +71,7 @@ object formLogin: TformLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 0
   end
   object txtPassword: TEdit
     Left = 160
@@ -98,7 +84,7 @@ object formLogin: TformLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
   end
   object btnLogin: TButton
     Left = 192
@@ -112,7 +98,7 @@ object formLogin: TformLogin
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
     OnClick = btnLoginClick
   end
 end

@@ -53,6 +53,22 @@ object formConnection: TformConnection
     Caption = 'Transaksi'
     TabOrder = 4
   end
+  object GroupBox6: TGroupBox
+    Left = 640
+    Top = 72
+    Width = 185
+    Height = 105
+    Caption = 'formDataPengguna'
+    TabOrder = 5
+  end
+  object GroupBox7: TGroupBox
+    Left = 640
+    Top = 208
+    Width = 185
+    Height = 145
+    Caption = 'Cetak Tiket'
+    TabOrder = 6
+  end
   object ZConnection: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -1273,5 +1289,338 @@ object formConnection: TformConnection
         end
       end
     end
+  end
+  object dsDataPengguna: TDataSource
+    DataSet = zqDataPengguna
+    Left = 680
+    Top = 104
+  end
+  object zqDataPengguna: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT *  FROM pengguna')
+    Params = <>
+    Left = 768
+    Top = 104
+  end
+  object dsCetakTiket: TDataSource
+    DataSet = zqCetakTiket
+    Left = 672
+    Top = 240
+  end
+  object zqCetakTiket: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT'
+      '    transaksi.id_transaksi,'
+      '    transaksi.no_tiket,'
+      #9'  pelanggan.nm_pelanggan AS nama_pelanggan,'
+      '    maskapai.nm_maskapai AS nama_maskapai,'
+      '    maskapai.rute,'
+      '    transaksi.berangkat,'
+      '    transaksi.tiba,'
+      '    laporan.Jumlah AS jumlah_pesanan,'
+      '    (maskapai.harga_jual * laporan.Jumlah) AS total_harga'
+      'FROM '
+      #9'transaksi'
+      'INNER JOIN'
+      #9'pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan'
+      'INNER JOIN'
+      #9'maskapai ON transaksi.id_maskapai = maskapai.id_maskapai'
+      'INNER JOIN'
+      #9'laporan ON transaksi.id_transaksi = laporan.id_transaksi'
+      'ORDER BY'
+      #9'id_transaksi ASC')
+    Params = <>
+    Left = 752
+    Top = 240
+  end
+  object frxRptCetakTiket: TfrxReport
+    Version = '4.12.6'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45257.584380902800000000
+    ReportOptions.LastChange = 45257.584380902800000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 672
+    Top = 296
+    Datasets = <
+      item
+        DataSet = frxDsCetakTiket
+        DataSetName = 'frxDBDCetakTiket'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 215.900000000000000000
+      PaperHeight = 279.400000000000000000
+      PaperSize = 1
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object ReportTitle1: TfrxReportTitle
+        Height = 71.811070000000000000
+        Top = 18.897650000000000000
+        Width = 740.409927000000000000
+        object Memo3: TfrxMemoView
+          Left = 200.315090000000000000
+          Top = 18.897650000000000000
+          Width = 328.819110000000000000
+          Height = 30.236240000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'TIKET PESAWAT')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 154.960730000000000000
+        Top = 151.181200000000000000
+        Width = 740.409927000000000000
+        DataSet = frxDsCetakTiket
+        DataSetName = 'frxDBDCetakTiket'
+        RowCount = 0
+        object Memo1: TfrxMemoView
+          Left = 94.488250000000000000
+          Width = 646.299630000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'no_tiket'
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Style = fsDouble
+          Frame.Typ = [ftBottom]
+          Memo.UTF8 = (
+            '[frxDBDCetakTiket."no_tiket"]')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Frame.Typ = [ftBottom]
+          Memo.UTF8 = (
+            'Nomor Tiket :')
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          Top = 30.236240000000000000
+          Width = 143.622140000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            'NAMA PELANGGAN')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Left = 143.622140000000000000
+          Top = 30.236240000000000000
+          Width = 192.756030000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            ': [frxDBDCetakTiket."nama_pelanggan"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo6: TfrxMemoView
+          Left = 374.173470000000000000
+          Top = 30.236240000000000000
+          Width = 105.826840000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            'MASKAPAI')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 480.000310000000000000
+          Top = 30.236240000000000000
+          Width = 181.417440000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            ': [frxDBDCetakTiket."nama_maskapai"] ([frxDBDCetakTiket."rute"])')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Left = 374.173470000000000000
+          Top = 56.692950000000000000
+          Width = 105.826840000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            'BERANGKAT')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 374.173470000000000000
+          Top = 83.149660000000000000
+          Width = 105.826840000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            'TIBA')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 480.000310000000000000
+          Top = 56.692950000000000000
+          Width = 181.417440000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            ': [frxDBDCetakTiket."berangkat"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 480.000310000000000000
+          Top = 83.149660000000000000
+          Width = 181.417440000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            ': [frxDBDCetakTiket."tiba"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Top = 56.692950000000000000
+          Width = 143.622140000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            'JUMLAH KURSI')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo13: TfrxMemoView
+          Left = 143.622140000000000000
+          Top = 56.692950000000000000
+          Width = 192.756030000000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataSet = frxDsCetakTiket
+          DataSetName = 'frxDBDCetakTiket'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Style = fsDouble
+          Memo.UTF8 = (
+            ': [frxDBDCetakTiket."jumlah_pesanan"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object frxDsCetakTiket: TfrxDBDataset
+    UserName = 'frxDBDCetakTiket'
+    CloseDataSource = False
+    DataSource = dsCetakTiket
+    BCDToCurrency = False
+    Left = 752
+    Top = 296
   end
 end

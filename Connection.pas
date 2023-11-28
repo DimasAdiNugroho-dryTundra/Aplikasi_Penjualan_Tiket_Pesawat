@@ -33,6 +33,14 @@ type
     dsIdMskp: TDataSource;
     frxDsTransaksi: TfrxDBDataset;
     frxRptTransaksi: TfrxReport;
+    GroupBox6: TGroupBox;
+    dsDataPengguna: TDataSource;
+    zqDataPengguna: TZQuery;
+    GroupBox7: TGroupBox;
+    dsCetakTiket: TDataSource;
+    zqCetakTiket: TZQuery;
+    frxRptCetakTiket: TfrxReport;
+    frxDsCetakTiket: TfrxDBDataset;
   private
     { Private declarations }
   public

@@ -15,12 +15,16 @@ type
     GroupBox1: TGroupBox;
     btnFormDataMaskapai: TButton;
     btnFormDataPelanggan: TButton;
+    btnDataPengguna: TButton;
+    btnCetakTiket: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnFormDataMaskapaiClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure btnFormDataPelangganClick(Sender: TObject);
     procedure btnFormTransaksiClick(Sender: TObject);
     procedure btnLaporanClick(Sender: TObject);
+    procedure btnDataPenggunaClick(Sender: TObject);
+    procedure btnCetakTiketClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,7 +40,7 @@ uses
   Connection,
   DataMaskapai,
   DataPelanggan,
-  Transaksi;
+  Transaksi, DataPengguna, CetakTiket;
 
 {$R *.dfm}
 
@@ -71,6 +75,18 @@ end;
 procedure TformMainMenu.btnLaporanClick(Sender: TObject);
 begin
   formConnection.frxRptLaporan.ShowReport();
+end;
+
+procedure TformMainMenu.btnDataPenggunaClick(Sender: TObject);
+begin
+  formDataPengguna.Show;
+  formMainMenu.Hide;
+end;
+
+procedure TformMainMenu.btnCetakTiketClick(Sender: TObject);
+begin
+  formCetakTiket.Show;
+  formMainMenu.Hide;
 end;
 
 end.

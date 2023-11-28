@@ -82,7 +82,7 @@ begin
   IDPengguna := txtGetIDPengguna.Text;
   Tanggal := dtpTanggal.Date;
   IDPelanggan := txtGetIDPlg.Text;
-  NoTiket := txtNoTiket.Text;
+  NoTiket := txtNoTiket.Text;   
   IDMskp := txtGetIDMskp.Text;
   Berangkat := DateTimeToStr(dtpBerangkat.Date);
   Tiba := DateTimeToStr(dtpTiba.Date);

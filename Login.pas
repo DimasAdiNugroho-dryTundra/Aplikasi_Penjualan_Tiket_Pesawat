@@ -8,7 +8,6 @@ uses
 
 type
   TformLogin = class(TForm)
-    DBGrid1: TDBGrid;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;

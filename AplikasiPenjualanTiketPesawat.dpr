@@ -7,7 +7,9 @@ uses
   MainMenu in 'MainMenu.pas' {formMainMenu},
   DataMaskapai in 'DataMaskapai.pas' {formDataMaskapai},
   DataPelanggan in 'DataPelanggan.pas' {formDataPelanggan},
-  Transaksi in 'Transaksi.pas' {formTransaksi};
+  Transaksi in 'Transaksi.pas' {formTransaksi},
+  DataPengguna in 'DataPengguna.pas' {formDataPengguna},
+  CetakTiket in 'CetakTiket.pas' {formCetakTiket};
 
 {$R *.res}
 
@@ -19,5 +21,7 @@ begin
   Application.CreateForm(TformMainMenu, formMainMenu);
   Application.CreateForm(TformDataMaskapai, formDataMaskapai);
   Application.CreateForm(TformDataPelanggan, formDataPelanggan);
+  Application.CreateForm(TformDataPengguna, formDataPengguna);
+  Application.CreateForm(TformCetakTiket, formCetakTiket);
   Application.Run;
 end.
