@@ -19,6 +19,7 @@ type
     procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
+    function IsUsernameExists(const AUsername: string): Boolean;
   public
     { Public declarations }
   end;
@@ -40,22 +41,52 @@ Position := poScreenCenter;
 end;
 
 procedure TformLogin.btnLoginClick(Sender: TObject);
-var userid : string;
+var
+  userid, username, password: string;
 begin
-    formConnection.zqLogin.SQL.Text := 'SELECT * FROM pengguna WHERE username = :username AND password = :password';
-    formConnection.zqLogin.ParamByName('username').AsString := txtUsername.Text;
-    formConnection.zqLogin.ParamByName('password').AsString := txtPassword.Text;
-    formConnection.zqLogin.Open;
+  username := txtUsername.Text;
+  password := txtPassword.Text;
 
-    if not formConnection.zqLogin.IsEmpty then
-    begin
+  if not IsUsernameExists(username) then
+  begin
+    ShowMessage('Username tidak ditemukan.');
+    Exit;
+  end;
+
+  formConnection.zqLogin.SQL.Text := 'SELECT id_pengguna, COUNT(*) FROM pengguna WHERE username = :username AND password = :password';
+  formConnection.zqLogin.ParamByName('username').AsString := username;
+  formConnection.zqLogin.ParamByName('password').AsString := password;
+  formConnection.zqLogin.Open;
+
+  try
+    if formConnection.zqLogin.Fields[1].AsInteger > 0 then
+      begin
       userid := formConnection.zqLogin.FieldValues['id_pengguna'];
       lblGetID.Caption := userid;
-      ShowMessage('Login berhasil!');
+
+      ShowMessage('Login berhasil.');
+
       formMainMenu.Show;
-    end
+      formLogin.Hide;
+      end
     else
-      ShowMessage('Login gagal!');
+      ShowMessage('Password salah.');
+  finally
+    formConnection.zqLogin.Close;
+  end;
 end;
+
+function TformLogin.IsUsernameExists(const AUsername: string): Boolean;
+begin
+  formConnection.zqLogin.SQL.Text := 'SELECT COUNT(*) FROM pengguna WHERE username = :username';
+  formConnection.zqLogin.ParamByName('username').AsString := AUsername;
+  formConnection.zqLogin.Open;
+  try
+    Result := formConnection.zqLogin.Fields[0].AsInteger > 0;
+  finally
+    formConnection.zqLogin.Close;
+  end;
+end;
+
 
 end.
