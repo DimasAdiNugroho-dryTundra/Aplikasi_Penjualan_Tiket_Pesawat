@@ -103,7 +103,7 @@ object formConnection: TformConnection
     Connected = True
     HostName = 'localhost'
     Port = 3306
-    Database = 'aplikasi_penjualan_tiket_pesawat_rev'
+    Database = 'aplikasi_penjualan_tiket_pesawat'
     User = 'root'
     Protocol = 'mysql'
     LibraryLocation = 
@@ -1370,7 +1370,7 @@ object formConnection: TformConnection
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45257.584380902800000000
-    ReportOptions.LastChange = 45257.584380902800000000
+    ReportOptions.LastChange = 45261.774901875000000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1647,7 +1647,7 @@ object formConnection: TformConnection
     Left = 752
     Top = 296
   end
-  object dsDaftarPelanggan: TDataSource
+  object dsDaftarPlg: TDataSource
     DataSet = zqDaftarPlg
     Left = 48
     Top = 408
@@ -1670,7 +1670,7 @@ object formConnection: TformConnection
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45257.841068900500000000
-    ReportOptions.LastChange = 45258.359330254630000000
+    ReportOptions.LastChange = 45258.359330254600000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1954,7 +1954,7 @@ object formConnection: TformConnection
   object frxDsDaftarPlg: TfrxDBDataset
     UserName = 'frxDBDDaftarPlg'
     CloseDataSource = False
-    DataSource = dsDataPelanggan
+    DataSource = dsDaftarPlg
     BCDToCurrency = False
     Left = 136
     Top = 464

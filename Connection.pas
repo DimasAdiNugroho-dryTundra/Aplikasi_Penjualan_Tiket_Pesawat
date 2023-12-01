@@ -42,7 +42,7 @@ type
     frxRptCetakTiket: TfrxReport;
     frxDsCetakTiket: TfrxDBDataset;
     GroupBox8: TGroupBox;
-    dsDaftarPelanggan: TDataSource;
+    dsDaftarPlg: TDataSource;
     zqDaftarPlg: TZQuery;
     frxRptDaftarPlg: TfrxReport;
     frxDsDaftarPlg: TfrxDBDataset;

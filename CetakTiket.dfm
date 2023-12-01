@@ -241,6 +241,12 @@ object formCetakTiket: TformCetakTiket
       Width = 473
       Height = 112
       DataSource = formConnection.dsCetakTiket
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText

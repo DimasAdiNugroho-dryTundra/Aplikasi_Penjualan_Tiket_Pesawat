@@ -461,7 +461,7 @@ object formTransaksi: TformTransaksi
     TabOrder = 6
   end
   object btnBackToMM: TButton
-    Left = 704
+    Left = 720
     Top = 448
     Width = 217
     Height = 49
@@ -476,19 +476,19 @@ object formTransaksi: TformTransaksi
     OnClick = btnBackToMMClick
   end
   object txtGetIDPengguna: TEdit
-    Left = 944
+    Left = 952
     Top = 464
     Width = 121
     Height = 21
     TabOrder = 8
     Visible = False
   end
-  object Button1: TButton
+  object btnRptTransaksi: TButton
     Left = 528
     Top = 448
-    Width = 153
+    Width = 169
     Height = 49
-    Caption = 'Laporan'
+    Caption = 'Laporan Transaksi'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -496,6 +496,6 @@ object formTransaksi: TformTransaksi
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 9
-    OnClick = Button1Click
+    OnClick = btnRptTransaksiClick
   end
 end
