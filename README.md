@@ -38,5 +38,5 @@ User/Pengguna dapat melihat dan mencetak **6 laporan** yang ada dalam aplikasi, 
 2. **Laporan Daftar Pelanggan**: Berisikan informasi daftar pelanggan yang terdaftar dalam sistem.
 3. **Laporan Daftar Maskapai**: Berisikan informasi daftar pelanggan yang terdaftar dalam sistem.
 4. **Laporan Data Transaksi**: Berisikan informasi data transaksi yang telah dilakukan.
-5. **Laporan Penjualan Tiket Pesawat**: Berisikan informasi penjualan tiket pesawat yang didalamnya berisikan informasi dari seluruh hasil transaksi yang telah dilakukan, kemudian dilakukan perhitungan _harga jual _ harga jumlah - harga pokok _ jumlah_ untuk mendapatkan hasil untung telah didapatkan yang kemudian akan dijumlahkan seluruh hasil tersebut sehingga didapatkan **total untung**.
+5. **Laporan Penjualan Tiket Pesawat**: Berisikan informasi penjualan tiket pesawat yang didalamnya berisikan informasi dari seluruh hasil transaksi yang telah dilakukan, kemudian dilakukan perhitungan _harga jual * harga jumlah - harga pokok * jumlah_ untuk mendapatkan hasil untung telah didapatkan yang kemudian akan dijumlahkan seluruh hasil tersebut sehingga didapatkan **total untung**.
 6. **Laporan Tiket Pesawat**: Berisikan informasi tiket pesawat yang dimiliki oleh pelanggan dari hasil transaksi yang telah dilakukan.
