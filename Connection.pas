@@ -56,6 +56,9 @@ type
     zqDaftarPggn: TZQuery;
     frxRptDaftarPggn: TfrxReport;
     frxDsDaftarPggn: TfrxDBDataset;
+    GroupBox11: TGroupBox;
+    zqPendaftaran: TZQuery;
+    zqRptTransaksi: TZQuery;
   private
     { Private declarations }
   public

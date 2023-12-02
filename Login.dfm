@@ -2,7 +2,7 @@ object formLogin: TformLogin
   Left = 437
   Top = 154
   Width = 514
-  Height = 365
+  Height = 483
   Caption = 'APLIKASI PENJUALAN TIKET PESAWAT'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -60,6 +60,32 @@ object formLogin: TformLogin
     Height = 13
     Visible = False
   end
+  object Label4: TLabel
+    Left = 160
+    Top = 312
+    Width = 156
+    Height = 19
+    Caption = 'Belum memiliki akun?'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 80
+    Top = 344
+    Width = 341
+    Height = 19
+    Caption = 'Silahkan daftar dengan klik tombol di bawah ini!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object txtUsername: TEdit
     Left = 160
     Top = 112
@@ -100,5 +126,20 @@ object formLogin: TformLogin
     ParentFont = False
     TabOrder = 2
     OnClick = btnLoginClick
+  end
+  object btnDaftar: TButton
+    Left = 192
+    Top = 381
+    Width = 89
+    Height = 41
+    Caption = 'Daftar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = btnDaftarClick
   end
 end

@@ -93,6 +93,14 @@ object formConnection: TformConnection
     Caption = 'Daftar Pengguna'
     TabOrder = 9
   end
+  object GroupBox11: TGroupBox
+    Left = 640
+    Top = 376
+    Width = 185
+    Height = 105
+    Caption = 'formPendaftaran'
+    TabOrder = 10
+  end
   object ZConnection: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -139,6 +147,7 @@ object formConnection: TformConnection
       '    laporan.id_laporan,'
       '    laporan.id_transaksi,'
       '    transaksi.tanggal,'
+      '    pengguna.username,'
       '    pelanggan.nm_pelanggan AS nama_pelanggan,'
       '    maskapai.nm_maskapai AS nama_maskapai,'
       '    maskapai.rute,'
@@ -157,6 +166,8 @@ object formConnection: TformConnection
       '    pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan'
       'INNER JOIN '
       '    maskapai ON transaksi.id_maskapai = maskapai.id_maskapai'
+      'INNER JOIN'
+      #9'pengguna ON laporan.id_pengguna = pengguna.id_pengguna'
       'ORDER BY'
       #9'laporan.id_laporan ASC;')
     Params = <>
@@ -172,7 +183,7 @@ object formConnection: TformConnection
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45204.551355370400000000
-    ReportOptions.LastChange = 45258.354073275460000000
+    ReportOptions.LastChange = 45262.674308715280000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -228,7 +239,6 @@ object formConnection: TformConnection
         Top = 109.606370000000000000
         Width = 980.410082000000000000
         object Memo2: TfrxMemoView
-          Left = 30.236240000000000000
           Width = 37.795300000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -245,8 +255,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo3: TfrxMemoView
-          Left = 68.031540000000000000
-          Width = 79.370130000000000000
+          Left = 98.267780000000000000
+          Width = 52.913420000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -262,7 +272,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo4: TfrxMemoView
-          Left = 147.401670000000000000
+          Left = 257.008040000000000000
           Width = 86.929190000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -279,7 +289,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo5: TfrxMemoView
-          Left = 234.330860000000000000
+          Left = 343.937230000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -296,7 +306,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo7: TfrxMemoView
-          Left = 430.866420000000000000
+          Left = 540.472790000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -313,8 +323,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Left = 627.401980000000000000
-          Width = 90.708720000000000000
+          Left = 737.008350000000000000
+          Width = 56.692950000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -330,7 +340,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo10: TfrxMemoView
-          Left = 718.110700000000000000
+          Left = 793.701300000000000000
           Width = 90.708720000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -347,7 +357,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo6: TfrxMemoView
-          Left = 332.598640000000000000
+          Left = 442.205010000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -364,7 +374,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo8: TfrxMemoView
-          Left = 529.134200000000000000
+          Left = 638.740570000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -381,8 +391,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo20: TfrxMemoView
-          Left = 808.819420000000000000
-          Width = 136.063080000000000000
+          Left = 884.410020000000000000
+          Width = 94.488250000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -397,6 +407,40 @@ object formConnection: TformConnection
           ParentFont = False
           VAlign = vaCenter
         end
+        object Memo28: TfrxMemoView
+          Left = 151.181200000000000000
+          Width = 105.826840000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Pelayan')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo30: TfrxMemoView
+          Left = 37.795300000000000000
+          Width = 60.472480000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ID Laporan')
+          ParentFont = False
+          VAlign = vaCenter
+        end
       end
       object MasterData1: TfrxMasterData
         Height = 37.795300000000000000
@@ -406,7 +450,6 @@ object formConnection: TformConnection
         DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo11: TfrxMemoView
-          Left = 30.236240000000000000
           Width = 37.795300000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -423,8 +466,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
-          Left = 68.031540000000000000
-          Width = 79.370130000000000000
+          Left = 98.267780000000000000
+          Width = 52.913420000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataField = 'id_transaksi'
@@ -443,7 +486,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 147.401670000000000000
+          Left = 257.008040000000000000
           Width = 86.929190000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -463,7 +506,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo14: TfrxMemoView
-          Left = 234.330860000000000000
+          Left = 343.937230000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -483,7 +526,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
-          Left = 430.866420000000000000
+          Left = 540.472790000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -504,8 +547,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo16: TfrxMemoView
-          Left = 627.401980000000000000
-          Width = 90.708720000000000000
+          Left = 737.008350000000000000
+          Width = 56.692950000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataField = 'Jumlah'
@@ -524,7 +567,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo17: TfrxMemoView
-          Left = 718.110700000000000000
+          Left = 793.701300000000000000
           Width = 90.708720000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -545,7 +588,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo18: TfrxMemoView
-          Left = 332.598640000000000000
+          Left = 442.205010000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -564,7 +607,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo19: TfrxMemoView
-          Left = 529.134200000000000000
+          Left = 638.740570000000000000
           Width = 98.267780000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -585,8 +628,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo21: TfrxMemoView
-          Left = 808.819420000000000000
-          Width = 136.063080000000000000
+          Left = 884.410020000000000000
+          Width = 94.488250000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataSet = frxDsLaporan
@@ -605,14 +648,54 @@ object formConnection: TformConnection
           ParentFont = False
           VAlign = vaCenter
         end
+        object Memo29: TfrxMemoView
+          Left = 151.181200000000000000
+          Width = 105.826840000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          DataField = 'username'
+          DataSet = frxDsLaporan
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."username"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo31: TfrxMemoView
+          Left = 37.795300000000000000
+          Width = 60.472480000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          DataField = 'id_transaksi'
+          DataSet = frxDsLaporan
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."id_transaksi"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
       end
       object Footer1: TfrxFooter
         Height = 192.756030000000000000
         Top = 268.346630000000000000
         Width = 980.410082000000000000
         object Memo22: TfrxMemoView
-          Left = 808.819420000000000000
-          Width = 136.063080000000000000
+          Left = 884.410020000000000000
+          Width = 94.488250000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataSet = frxDsLaporan
@@ -633,7 +716,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo23: TfrxMemoView
-          Left = 718.110700000000000000
+          Left = 793.701300000000000000
           Width = 90.708720000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -768,7 +851,7 @@ object formConnection: TformConnection
     SQL.Strings = (
       'SELECT '
       '    transaksi.id_transaksi,'
-      '    laporan.id_laporan, '
+      '    laporan.id_laporan,'
       '    transaksi.tanggal,'
       '    transaksi.no_tiket,'
       '    pelanggan.nm_pelanggan AS nama, '
@@ -831,7 +914,7 @@ object formConnection: TformConnection
   object frxDsTransaksi: TfrxDBDataset
     UserName = 'frxDBDsTransaksi'
     CloseDataSource = False
-    DataSet = zqTransaksi
+    DataSet = zqRptTransaksi
     BCDToCurrency = False
     Left = 488
     Top = 232
@@ -845,7 +928,7 @@ object formConnection: TformConnection
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45229.480293044000000000
-    ReportOptions.LastChange = 45258.355281736100000000
+    ReportOptions.LastChange = 45262.681500520830000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -921,7 +1004,7 @@ object formConnection: TformConnection
         end
         object Memo12: TfrxMemoView
           Left = 75.590600000000000000
-          Width = 79.370130000000000000
+          Width = 52.913420000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataField = 'id_transaksi'
@@ -940,8 +1023,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 154.960730000000000000
-          Width = 86.929190000000000000
+          Left = 238.110390000000000000
+          Width = 60.472480000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataField = 'no_tiket'
@@ -960,7 +1043,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo14: TfrxMemoView
-          Left = 328.819110000000000000
+          Left = 385.512060000000000000
           Width = 117.165430000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -980,7 +1063,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
-          Left = 718.110700000000000000
+          Left = 740.787880000000000000
           Width = 71.811070000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1000,8 +1083,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo16: TfrxMemoView
-          Left = 789.921770000000000000
-          Width = 154.960730000000000000
+          Left = 812.598950000000000000
+          Width = 132.283550000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataSet = frxDsTransaksi
@@ -1021,7 +1104,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo17: TfrxMemoView
-          Left = 445.984540000000000000
+          Left = 502.677490000000000000
           Width = 117.165430000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1040,8 +1123,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo18: TfrxMemoView
-          Left = 563.149970000000000000
-          Width = 154.960730000000000000
+          Left = 619.842920000000000000
+          Width = 120.944960000000000000
           Height = 37.795300000000000000
           ShowHint = False
           DataSet = frxDsTransaksi
@@ -1061,7 +1144,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo19: TfrxMemoView
-          Left = 241.889920000000000000
+          Left = 298.582870000000000000
           Width = 86.929190000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1077,6 +1160,26 @@ object formConnection: TformConnection
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBDsTransaksi."tanggal"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo25: TfrxMemoView
+          Left = 128.504020000000000000
+          Width = 109.606370000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          DataField = 'pelayan'
+          DataSet = frxDsTransaksi
+          DataSetName = 'frxDBDsTransaksi'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDsTransaksi."pelayan"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -1177,7 +1280,7 @@ object formConnection: TformConnection
         end
         object Memo3: TfrxMemoView
           Left = 75.590600000000000000
-          Width = 79.370130000000000000
+          Width = 52.913420000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -1193,8 +1296,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo4: TfrxMemoView
-          Left = 154.960730000000000000
-          Width = 86.929190000000000000
+          Left = 238.110390000000000000
+          Width = 60.472480000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -1210,7 +1313,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo5: TfrxMemoView
-          Left = 328.819110000000000000
+          Left = 385.512060000000000000
           Width = 117.165430000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1227,7 +1330,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Left = 718.110700000000000000
+          Left = 740.787880000000000000
           Width = 71.811070000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1244,8 +1347,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo10: TfrxMemoView
-          Left = 789.921770000000000000
-          Width = 154.960730000000000000
+          Left = 812.598950000000000000
+          Width = 132.283550000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -1261,7 +1364,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo6: TfrxMemoView
-          Left = 445.984540000000000000
+          Left = 502.677490000000000000
           Width = 117.165430000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1278,8 +1381,8 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo8: TfrxMemoView
-          Left = 563.149970000000000000
-          Width = 154.960730000000000000
+          Left = 619.842920000000000000
+          Width = 120.944960000000000000
           Height = 37.795300000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -1295,7 +1398,7 @@ object formConnection: TformConnection
           VAlign = vaCenter
         end
         object Memo7: TfrxMemoView
-          Left = 241.889920000000000000
+          Left = 298.582870000000000000
           Width = 86.929190000000000000
           Height = 37.795300000000000000
           ShowHint = False
@@ -1308,6 +1411,23 @@ object formConnection: TformConnection
           HAlign = haCenter
           Memo.UTF8 = (
             'Tanggal')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          Left = 128.504020000000000000
+          Width = 109.606370000000000000
+          Height = 37.795300000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Pelayan')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2510,5 +2630,49 @@ object formConnection: TformConnection
     BCDToCurrency = False
     Left = 560
     Top = 456
+  end
+  object zqPendaftaran: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT *  FROM pengguna')
+    Params = <>
+    Left = 712
+    Top = 416
+  end
+  object zqRptTransaksi: TZQuery
+    Connection = ZConnection
+    Active = True
+    SQL.Strings = (
+      'SELECT '
+      '    transaksi.id_transaksi,'
+      '    laporan.id_laporan,'
+      '    pengguna.username AS pelayan,'
+      '    transaksi.tanggal,'
+      '    transaksi.no_tiket,'
+      '    pelanggan.nm_pelanggan AS nama, '
+      '    maskapai.nm_maskapai AS maskapai,'
+      '    maskapai.rute,'
+      '    transaksi.berangkat,'
+      '    transaksi.tiba,'
+      '    maskapai.harga_jual AS harga,'
+      '    laporan.Jumlah AS jumlah_pesanan,'
+      '    (maskapai.harga_jual * laporan.Jumlah) AS total_harga,'
+      'pelanggan.id_pelanggan, maskapai.id_maskapai'
+      'FROM '
+      '    transaksi'
+      'JOIN '
+      '    pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan'
+      'JOIN '
+      '    maskapai ON transaksi.id_maskapai = maskapai.id_maskapai'
+      'JOIN'
+      #9'laporan ON transaksi.id_transaksi = laporan.id_transaksi'
+      'JOIN'
+      #9'pengguna ON pengguna.id_pengguna = laporan.id_pengguna'
+      'ORDER BY'
+      #9'transaksi.id_transaksi ASC;')
+    Params = <>
+    Left = 568
+    Top = 232
   end
 end

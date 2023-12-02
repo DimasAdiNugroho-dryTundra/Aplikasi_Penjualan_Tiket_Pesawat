@@ -9,7 +9,8 @@ uses
   DataPelanggan in 'DataPelanggan.pas' {formDataPelanggan},
   Transaksi in 'Transaksi.pas' {formTransaksi},
   DataPengguna in 'DataPengguna.pas' {formDataPengguna},
-  CetakTiket in 'CetakTiket.pas' {formCetakTiket};
+  CetakTiket in 'CetakTiket.pas' {formCetakTiket},
+  Pendaftaran in 'Pendaftaran.pas' {formPendaftaran};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TformDataPelanggan, formDataPelanggan);
   Application.CreateForm(TformDataPengguna, formDataPengguna);
   Application.CreateForm(TformCetakTiket, formCetakTiket);
+  Application.CreateForm(TformPendaftaran, formPendaftaran);
   Application.Run;
 end.

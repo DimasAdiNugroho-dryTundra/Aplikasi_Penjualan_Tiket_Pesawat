@@ -15,8 +15,12 @@ type
     txtPassword: TEdit;
     btnLogin: TButton;
     lblGetID: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    btnDaftar: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
+    procedure btnDaftarClick(Sender: TObject);
   private
     { Private declarations }
     function IsUsernameExists(const AUsername: string): Boolean;
@@ -31,7 +35,7 @@ implementation
 
 uses
   Connection,
-  MainMenu;
+  MainMenu, Pendaftaran;
 
 {$R *.dfm}
 
@@ -49,7 +53,7 @@ begin
 
   if not IsUsernameExists(username) then
   begin
-    ShowMessage('Username tidak ditemukan.');
+    ShowMessage('Username tidak ditemukan!');
     Exit;
   end;
 
@@ -64,13 +68,13 @@ begin
       userid := formConnection.zqLogin.FieldValues['id_pengguna'];
       lblGetID.Caption := userid;
 
-      ShowMessage('Login berhasil.');
+      ShowMessage('Login berhasil!');
 
       formMainMenu.Show;
       formLogin.Hide;
       end
     else
-      ShowMessage('Password salah.');
+      ShowMessage('Login gagal!');
   finally
     formConnection.zqLogin.Close;
   end;
@@ -88,5 +92,11 @@ begin
   end;
 end;
 
+
+procedure TformLogin.btnDaftarClick(Sender: TObject);
+begin
+ formPendaftaran.Show;
+ formLogin.Hide;
+end;
 
 end.
