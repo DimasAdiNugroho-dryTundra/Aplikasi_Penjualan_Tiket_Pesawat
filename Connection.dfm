@@ -845,7 +845,7 @@ object formConnection: TformConnection
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45229.480293044000000000
-    ReportOptions.LastChange = 45258.355281736110000000
+    ReportOptions.LastChange = 45258.355281736100000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
