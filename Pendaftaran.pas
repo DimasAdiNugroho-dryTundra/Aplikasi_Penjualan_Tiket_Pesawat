@@ -46,6 +46,30 @@ procedure TformPendaftaran.btnDaftarClick(Sender: TObject);
 var
   checkConfirm : Boolean;
 begin
+  if txtIDPengguna.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Pengguna!');
+    Exit;
+  end;
+
+  if txtUsername.Text = '' then
+  begin
+    ShowMessage('Harap isi Username!');
+    Exit;
+  end;
+
+  if txtPassword.Text = '' then
+  begin
+    ShowMessage('Harap isi Password!');
+    Exit;
+  end;
+
+  if txtPasswordConfirm.Text = '' then
+  begin
+    ShowMessage('Harap isi Konfirmasi Password!');
+    Exit;
+  end;
+
   formConnection.zqPendaftaran.SQL.Text := 'SELECT * FROM pengguna WHERE id_pengguna = :idpengguna';
   formConnection.zqPendaftaran.ParamByName('idpengguna').Value := txtIDPengguna.Text;
   formConnection.zqPendaftaran.Open;

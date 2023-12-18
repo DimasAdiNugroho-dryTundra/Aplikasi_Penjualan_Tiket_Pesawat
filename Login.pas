@@ -48,6 +48,19 @@ procedure TformLogin.btnLoginClick(Sender: TObject);
 var
   userid, username, password: string;
 begin
+
+  if txtUsername.Text = '' then
+  begin
+    ShowMessage('Harap isi Username!');
+    Exit;
+  end;
+
+  if txtPassword.Text = '' then
+  begin
+    ShowMessage('Harap isi Password!');
+    Exit;
+  end;
+
   username := txtUsername.Text;
   password := txtPassword.Text;
 
