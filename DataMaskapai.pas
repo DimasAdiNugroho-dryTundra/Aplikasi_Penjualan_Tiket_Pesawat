@@ -74,7 +74,52 @@ begin
 end;
 
 procedure TformDataMaskapai.btnTambahClick(Sender: TObject);
+var
+  checkConfirm : Boolean;
 begin
+  if txtIDMaskapai.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Maskapai!');
+    Exit;
+  end;
+
+  if txtNmMaskapai.Text = '' then
+  begin
+    ShowMessage('Harap isi Nama Maskapai!');
+    Exit;
+  end;
+
+  if txtRute.Text = '' then
+  begin
+    ShowMessage('Harap isi Rute!');
+    Exit;
+  end;
+
+  if txtHrgJual.Text = '' then
+  begin
+    ShowMessage('Harap isi Harga Jual!');
+    Exit;
+  end;
+
+  if txtHrgPokok.Text = '' then
+  begin
+    ShowMessage('Harap isi Harga Pokok!');
+    Exit;
+  end;
+
+  formConnection.zqDataMaskapai.SQL.Text := 'SELECT * FROM maskapai WHERE id_maskapai = :idmaskapai';
+  formConnection.zqDataMaskapai.ParamByName('idmaskapai').Value := txtIDMaskapai.Text;
+  formConnection.zqDataMaskapai.Open;
+
+  checkConfirm := not formConnection.zqDataMaskapai.IsEmpty;
+
+  if checkConfirm then
+  begin
+    ShowMessage('ID Maskapai sudah ada! Silakan pilih ID Maskapai yang lain!');
+    formConnection.zqDataMaskapai.Close;
+    Exit;
+  end;
+
   formConnection.zqDataMaskapai.SQL.Clear;
   formConnection.zqDataMaskapai.SQL.Add('INSERT INTO maskapai VALUES ("'+txtIDMaskapai.Text+'", "'+txtNmMaskapai.Text+'", "'+txtRute.Text+'", "'+txtHrgJual.Text+'", "'+txtHrgPokok.Text+'");');
   formConnection.zqDataMaskapai.ExecSQL;

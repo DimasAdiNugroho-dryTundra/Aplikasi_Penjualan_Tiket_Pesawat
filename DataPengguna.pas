@@ -46,7 +46,40 @@ uses Connection, MainMenu;
 {$R *.dfm}
 
 procedure TformDataPengguna.btnTambahClick(Sender: TObject);
+var
+  checkConfirm : Boolean;
 begin
+  if txtIDPengguna.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Pengguna!');
+    Exit;
+  end;
+
+  if txtUsername.Text = '' then
+  begin
+    ShowMessage('Harap isi Username!');
+    Exit;
+  end;
+
+  if txtPassword.Text = '' then
+  begin
+    ShowMessage('Harap isi Password!');
+    Exit;
+  end;
+
+  formConnection.zqDataPengguna.SQL.Text := 'SELECT * FROM pengguna WHERE id_pengguna = :idpengguna';
+  formConnection.zqDataPengguna.ParamByName('idpengguna').Value := txtIDPengguna.Text;
+  formConnection.zqDataPengguna.Open;
+
+  checkConfirm := not formConnection.zqDataPengguna.IsEmpty;
+
+  if checkConfirm then
+  begin
+    ShowMessage('ID Pengguna sudah ada! Silakan pilih ID Pengguna yang lain!');
+    formConnection.zqDataPengguna.Close;
+    Exit;
+  end;
+
   formConnection.zqDataPengguna.SQL.Clear;
   formConnection.zqDataPengguna.SQL.Add('INSERT INTO pengguna VALUES ("'+txtIDPengguna.Text+'", "'+txtUsername.Text+'", "'+txtPassword.Text+'");');
   formConnection.zqDataPengguna.ExecSQL;

@@ -53,7 +53,7 @@ uses
 
 procedure TformDataPelanggan.FormCreate(Sender: TObject);
 begin
-   Position := poScreenCenter;
+  Position := poScreenCenter;
   //btnBatal.Enabled := False;
   btnUbah.Enabled := False;
   btnHapus.Enabled := False;
@@ -75,7 +75,52 @@ begin
 end;
 
 procedure TformDataPelanggan.btnTambahClick(Sender: TObject);
+var
+  checkConfirm : Boolean;
 begin
+  if txtIDplg.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Pelanggan!');
+    Exit;
+  end;
+
+  if txtNamaPlg.Text = '' then
+  begin
+    ShowMessage('Harap isi Nama Pelanggan!');
+    Exit;
+  end;
+
+  if cmbJnsID.ItemIndex = -1 then
+  begin
+    ShowMessage('Harap pilih Jenis Identitas!');
+    Exit;
+  end;
+
+  if txtNoId.Text = '' then
+  begin
+    ShowMessage('Harap isi Nomor Identitas!');
+    Exit;
+  end;
+
+  if txtKontak.Text = '' then
+  begin
+    ShowMessage('Harap isi Kontak!');
+    Exit;
+  end;
+
+  formConnection.zqDataPelanggan.SQL.Text := 'SELECT * FROM pelanggan WHERE id_pelanggan = :idpelanggan';
+  formConnection.zqDataPelanggan.ParamByName('idpelanggan').Value := txtIDplg.Text;
+  formConnection.zqDataPelanggan.Open;
+
+  checkConfirm := not formConnection.zqDataPelanggan.IsEmpty;
+
+  if checkConfirm then
+  begin
+    ShowMessage('ID Pelanggan sudah ada! Silakan pilih ID Pelanggan yang lain!');
+    formConnection.zqDataPelanggan.Close;
+    Exit;
+  end;
+
   formConnection.zqDataPelanggan.SQL.Clear;
   formConnection.zqDataPelanggan.SQL.Add('INSERT INTO pelanggan VALUES ("'+txtIDplg.Text+'", "'+txtNamaPlg.Text+'", "'+cmbJnsID.Text+'", "'+txtNoId.Text+'", "'+txtKontak.Text+'");');
   formConnection.zqDataPelanggan.ExecSQL;
