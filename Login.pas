@@ -70,7 +70,8 @@ begin
     Exit;
   end;
 
-  formConnection.zqLogin.SQL.Text := 'SELECT id_pengguna, COUNT(*) FROM pengguna WHERE username = :username AND password = :password';
+  //formConnection.zqLogin.SQL.Text := 'SELECT id_pengguna, COUNT(*) FROM pengguna WHERE username = :username AND password = :password';
+  formConnection.zqLogin.SQL.Text := 'SELECT id_pengguna, COUNT(*) FROM pengguna WHERE username = :username AND password = AES_ENCRYPT(`password`, ''76jV60mkzU'') = :password';
   formConnection.zqLogin.ParamByName('username').AsString := username;
   formConnection.zqLogin.ParamByName('password').AsString := password;
   formConnection.zqLogin.Open;

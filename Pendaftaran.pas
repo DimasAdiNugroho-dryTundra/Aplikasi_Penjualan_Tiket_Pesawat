@@ -106,7 +106,8 @@ begin
     Exit;
   end;
 
-  formConnection.zqPendaftaran.SQL.Text := 'INSERT INTO pengguna (id_pengguna, username, password) VALUES (:idpengguna, :username, :password)';
+  //formConnection.zqPendaftaran.SQL.Text := 'INSERT INTO pengguna (id_pengguna, username, password) VALUES (:idpengguna, :username, :password)';
+  formConnection.zqPendaftaran.SQL.Text := 'INSERT INTO pengguna (id_pengguna, username, password) VALUES (:idpengguna, :username, AES_ENCRYPT(:password, ''76jV60mkzU''))';
   formConnection.zqPendaftaran.ParamByName('idpengguna').Value := txtIDPengguna.Text;
   formConnection.zqPendaftaran.ParamByName('username').Value := txtUsername.Text;
   formConnection.zqPendaftaran.ParamByName('password').Value := txtPasswordConfirm.Text;
