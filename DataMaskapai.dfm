@@ -2,7 +2,7 @@ object formDataMaskapai: TformDataMaskapai
   Left = 192
   Top = 125
   Width = 706
-  Height = 482
+  Height = 524
   Caption = 'Data Maskapai'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,6 +14,19 @@ object formDataMaskapai: TformDataMaskapai
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label6: TLabel
+    Left = 32
+    Top = 296
+    Width = 77
+    Height = 19
+    Caption = 'Cari Data'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object GroupBox1: TGroupBox
     Left = 32
     Top = 24
@@ -161,7 +174,7 @@ object formDataMaskapai: TformDataMaskapai
   end
   object dgMaskapai: TDBGrid
     Left = 32
-    Top = 296
+    Top = 344
     Width = 625
     Height = 120
     DataSource = formConnection.dsDataMaskapai
@@ -262,5 +275,34 @@ object formDataMaskapai: TformDataMaskapai
     ParentFont = False
     TabOrder = 7
     OnClick = btnCetakDaftarMskpClick
+  end
+  object txtCariData: TEdit
+    Left = 120
+    Top = 296
+    Width = 217
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+    OnChange = txtCariDataChange
+  end
+  object btnBatalCari: TButton
+    Left = 352
+    Top = 296
+    Width = 89
+    Height = 25
+    Caption = 'Batal'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+    OnClick = btnBatalCariClick
   end
 end

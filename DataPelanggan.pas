@@ -26,6 +26,9 @@ type
     btnBatal: TButton;
     btnBackToMM: TButton;
     btnCetakDaftarPlg: TButton;
+    Label6: TLabel;
+    txtCariData: TEdit;
+    btnBatalCari: TButton;
     procedure FormCreate(Sender: TObject);
     procedure dgDataPelangganCellClick(Column: TColumn);
     procedure btnTambahClick(Sender: TObject);
@@ -34,6 +37,8 @@ type
     procedure btnBatalClick(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
     procedure btnCetakDaftarPlgClick(Sender: TObject);
+    procedure txtCariDataChange(Sender: TObject);
+    procedure btnBatalCariClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -185,6 +190,21 @@ end;
 procedure TformDataPelanggan.btnCetakDaftarPlgClick(Sender: TObject);
 begin
   formConnection.frxRptDaftarPlg.ShowReport();
+end;
+
+procedure TformDataPelanggan.txtCariDataChange(Sender: TObject);
+var
+  cari : String;
+begin
+  cari := txtCariData.Text;
+  formConnection.zqDataPelanggan.SQL.Clear;
+  formConnection.zqDataPelanggan.SQL.Text := 'SELECT * FROM pelanggan WHERE id_pelanggan LIKE ''%'+cari+'%'' OR nm_pelanggan LIKE ''%'+cari+'%'' OR jenis_identitas LIKE ''%' +cari+'%'' OR no_identitas LIKE ''%' +cari+'%'' OR kontak LIKE ''%' +cari+'%''';
+  formConnection.zqDataPelanggan.Open;
+end;
+
+procedure TformDataPelanggan.btnBatalCariClick(Sender: TObject);
+begin
+  txtCariData.Clear;
 end;
 
 end.

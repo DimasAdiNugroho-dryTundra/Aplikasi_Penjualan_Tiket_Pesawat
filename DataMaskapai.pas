@@ -26,6 +26,9 @@ type
     btnBatal: TButton;
     btnBackToMM: TButton;
     btnCetakDaftarMskp: TButton;
+    Label6: TLabel;
+    txtCariData: TEdit;
+    btnBatalCari: TButton;
     procedure FormCreate(Sender: TObject);
     procedure dgMaskapaiCellClick(Column: TColumn);
     procedure btnTambahClick(Sender: TObject);
@@ -34,6 +37,8 @@ type
     procedure btnBatalClick(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
     procedure btnCetakDaftarMskpClick(Sender: TObject);
+    procedure txtCariDataChange(Sender: TObject);
+    procedure btnBatalCariClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -184,6 +189,21 @@ end;
 procedure TformDataMaskapai.btnCetakDaftarMskpClick(Sender: TObject);
 begin
   formConnection.frxRptDaftarMskp.ShowReport();
+end;
+
+procedure TformDataMaskapai.txtCariDataChange(Sender: TObject);
+var
+  cari : String;
+begin
+  cari := txtCariData.Text;
+  formConnection.zqDataMaskapai.SQL.Clear;
+  formConnection.zqDataMaskapai.SQL.Text := 'SELECT * FROM maskapai WHERE id_maskapai LIKE ''%'+cari+'%'' OR nm_maskapai LIKE ''%'+cari+'%'' OR rute LIKE ''%' +cari+'%''';
+  formConnection.zqDataMaskapai.Open;
+end;
+
+procedure TformDataMaskapai.btnBatalCariClick(Sender: TObject);
+begin
+ txtCariData.Clear;
 end;
 
 end.

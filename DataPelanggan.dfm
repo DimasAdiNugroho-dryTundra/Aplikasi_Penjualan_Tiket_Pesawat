@@ -2,7 +2,7 @@ object formDataPelanggan: TformDataPelanggan
   Left = 192
   Top = 125
   Width = 718
-  Height = 512
+  Height = 530
   Caption = 'Data Pelanggan'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,6 +14,19 @@ object formDataPelanggan: TformDataPelanggan
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label6: TLabel
+    Left = 32
+    Top = 304
+    Width = 77
+    Height = 19
+    Caption = 'Cari Data'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object GroupBox1: TGroupBox
     Left = 32
     Top = 24
@@ -165,7 +178,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object dgDataPelanggan: TDBGrid
     Left = 32
-    Top = 312
+    Top = 352
     Width = 625
     Height = 120
     DataSource = formConnection.dsDataPelanggan
@@ -179,7 +192,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnTambah: TButton
     Left = 440
-    Top = 48
+    Top = 32
     Width = 97
     Height = 49
     Caption = 'Tambah'
@@ -194,7 +207,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnHapus: TButton
     Left = 440
-    Top = 120
+    Top = 104
     Width = 97
     Height = 49
     Caption = 'Hapus'
@@ -209,7 +222,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnUbah: TButton
     Left = 560
-    Top = 48
+    Top = 32
     Width = 97
     Height = 49
     Caption = 'Ubah'
@@ -224,7 +237,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnBatal: TButton
     Left = 560
-    Top = 120
+    Top = 104
     Width = 97
     Height = 49
     Caption = 'Batal'
@@ -239,7 +252,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnBackToMM: TButton
     Left = 440
-    Top = 248
+    Top = 232
     Width = 217
     Height = 49
     Caption = 'Kembali ke Main Menu'
@@ -254,7 +267,7 @@ object formDataPelanggan: TformDataPelanggan
   end
   object btnCetakDaftarPlg: TButton
     Left = 440
-    Top = 184
+    Top = 168
     Width = 217
     Height = 49
     Caption = 'Cetak Daftar Pelanggan'
@@ -266,5 +279,34 @@ object formDataPelanggan: TformDataPelanggan
     ParentFont = False
     TabOrder = 7
     OnClick = btnCetakDaftarPlgClick
+  end
+  object txtCariData: TEdit
+    Left = 120
+    Top = 304
+    Width = 217
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+    OnChange = txtCariDataChange
+  end
+  object btnBatalCari: TButton
+    Left = 352
+    Top = 304
+    Width = 89
+    Height = 25
+    Caption = 'Batal'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+    OnClick = btnBatalCariClick
   end
 end

@@ -2,7 +2,7 @@ object formDataPengguna: TformDataPengguna
   Left = 192
   Top = 124
   Width = 684
-  Height = 470
+  Height = 532
   Caption = 'Data Pengguna'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,9 +14,22 @@ object formDataPengguna: TformDataPengguna
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label4: TLabel
+    Left = 32
+    Top = 304
+    Width = 77
+    Height = 19
+    Caption = 'Cari Data'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object dgDataPengguna: TDBGrid
     Left = 40
-    Top = 296
+    Top = 352
     Width = 593
     Height = 120
     DataSource = formConnection.dsDataPengguna
@@ -210,5 +223,34 @@ object formDataPengguna: TformDataPengguna
     ParentFont = False
     TabOrder = 7
     OnClick = btnCetakDaftarPgnClick
+  end
+  object txtCariData: TEdit
+    Left = 120
+    Top = 304
+    Width = 217
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+    OnChange = txtCariDataChange
+  end
+  object btnBatalCari: TButton
+    Left = 352
+    Top = 304
+    Width = 89
+    Height = 25
+    Caption = 'Batal'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+    OnClick = btnBatalCariClick
   end
 end

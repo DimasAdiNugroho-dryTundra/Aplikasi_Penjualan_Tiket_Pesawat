@@ -22,6 +22,9 @@ type
     btnBatal: TButton;
     btnBackToMM: TButton;
     btnCetakDaftarPgn: TButton;
+    Label4: TLabel;
+    txtCariData: TEdit;
+    btnBatalCari: TButton;
     procedure btnTambahClick(Sender: TObject);
     procedure btnUbahClick(Sender: TObject);
     procedure btnHapusClick(Sender: TObject);
@@ -30,6 +33,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnBackToMMClick(Sender: TObject);
     procedure btnCetakDaftarPgnClick(Sender: TObject);
+    procedure txtCariDataChange(Sender: TObject);
+    procedure btnBatalCariClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -163,6 +168,21 @@ end;
 procedure TformDataPengguna.btnCetakDaftarPgnClick(Sender: TObject);
 begin
   formConnection.frxRptDaftarPggn.ShowReport();
+end;
+
+procedure TformDataPengguna.txtCariDataChange(Sender: TObject);
+var
+  cari : String;
+begin
+  cari := txtCariData.Text;
+  formConnection.zqDataPengguna.SQL.Clear;
+  formConnection.zqDataPengguna.SQL.Text := 'SELECT * FROM pengguna WHERE id_pengguna LIKE ''%'+cari+'%'' OR username LIKE ''%'+cari+'%'' OR password LIKE ''%' +cari+'%''';
+  formConnection.zqDataPengguna.Open;
+end;
+
+procedure TformDataPengguna.btnBatalCariClick(Sender: TObject);
+begin
+  txtCariData.Clear;
 end;
 
 end.
