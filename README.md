@@ -20,15 +20,15 @@ Pembuatan Aplikasi ini didasari karena pada sebuah biro perjalanan swasta tidak 
 
 Aplikasi ini berisikan beberapa form diantaranya:
 
-1. **Login**, berfungsi untuk mengakses aplikasi sebagai user/pengguna.
-2. **Pendaftaran**, berfungsi untuk mendaftarkan user/pengguna baru.
+1. **Login**, berfungsi untuk mengakses aplikasi sebagai user/pengguna dengan memasukan username dan password terenkripsi.
+2. **Pendaftaran**, berfungsi untuk mendaftarkan user/pengguna baru dengan password yang terenkripsi dengan *AES_ENCRYPT*.
 3. **MainMenu**, berfungsi untuk mengakses form lain setelah berhasil login.
 4. **Transaksi**, berfungsi untuk mengatur data transaksi dan melihat laporan data transaksi.
 5. **Cetak Tiket**, berfungsi untuk memilih tiket mana yang akan dicetak setelah melakukan transaksi.
 6. **Data Maskapai**, berfungsi berfungsi untuk mengatur data maskapai dan melihat laporan daftar maskapai.
 7. **Data Pelanggan**, berfungsi untuk mengatur data pelanggan dan melihat laporan daftar pelanggan.
 8. **Data Pengguna**, berfungsi untuk mengatur data pengguna dan melihat laporan daftar pengguna.
-9. **Connection**, form ini tidak dapat diakses di dalam aplikasi dan hanya berfungsi untuk menempatkan komponen yang menghubungkan aplikasi dengan database dan komponen untuk laporan.
+9. **Connection**, form ini tidak dapat diakses di dalam aplikasi dan hanya berfungsi untuk menempatkan komponen yang menghubungkan aplikasi dengan database, menampilkan data yang ada pada tabel, dan komponen untuk laporan.
 
 ## Laporan
 
