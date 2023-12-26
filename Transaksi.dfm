@@ -1,6 +1,6 @@
 object formTransaksi: TformTransaksi
-  Left = 192
-  Top = 125
+  Left = 122
+  Top = 253
   Width = 1099
   Height = 567
   Caption = 'Transaksi'
@@ -12,6 +12,7 @@ object formTransaksi: TformTransaksi
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -459,6 +460,7 @@ object formTransaksi: TformTransaksi
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
+    OnClick = btnBatalClick
   end
   object btnBackToMM: TButton
     Left = 720

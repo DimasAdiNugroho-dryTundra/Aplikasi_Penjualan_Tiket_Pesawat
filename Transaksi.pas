@@ -52,6 +52,8 @@ type
     procedure btnBackToMMClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnRptTransaksiClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnBatalClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,9 +76,72 @@ uses
 
 procedure TformTransaksi.btnTambahClick(Sender: TObject);
 var
+  checkConfirm : Boolean;
   Tanggal: TDateTime;
   IDTransaksi, IDLaporan, IDPelanggan, IDPengguna, NoTiket, IDMskp, Berangkat, Tiba, jumlah: string;
 begin
+  if txtIDTransaksi.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Transaksi!');
+    Exit;
+  end;
+
+  if txtIDLaporan.Text = '' then
+  begin
+    ShowMessage('Harap isi ID Laporan!');
+    Exit;
+  end;
+
+  if txtNoTiket.Text = '' then
+  begin
+    ShowMessage('Harap isi No Tiket!');
+    Exit;
+  end;
+
+  if txtJumlah.Text = '' then
+  begin
+    ShowMessage('Harap isi Jumlah!');
+    Exit;
+  end;
+
+  if txtNmPlg.Text = '' then
+  begin
+    ShowMessage('Harap isi Nama Pelanggan!');
+    Exit;
+  end;
+
+  if txtNmMskp.Text = '' then
+  begin
+    ShowMessage('Harap isi Nama Maskapai!');
+    Exit;
+  end;
+
+  formConnection.zqTransaksi.SQL.Text := 'SELECT * FROM transaksi WHERE id_transaksi = :idtransaksi';
+  formConnection.zqTransaksi.ParamByName('idtransaksi').Value := txtIDTransaksi.Text;
+  formConnection.zqTransaksi.Open;
+
+  checkConfirm := not formConnection.zqTransaksi.IsEmpty;
+
+  if checkConfirm then
+  begin
+    ShowMessage('ID Transaksi sudah ada! Silakan pilih ID Transaksi yang lain!');
+    formConnection.zqTransaksi.Close;
+    Exit;
+  end;
+
+  formConnection.zqTransaksi.SQL.Text := 'SELECT * FROM laporan WHERE id_laporan = :idlaporan';
+  formConnection.zqTransaksi.ParamByName('idlaporan').Value := txtIDLaporan.Text;
+  formConnection.zqTransaksi.Open;
+
+  checkConfirm := not formConnection.zqTransaksi.IsEmpty;
+
+  if checkConfirm then
+  begin
+    ShowMessage('ID Laporan sudah ada! Silakan pilih ID Laporan yang lain!');
+    formConnection.zqTransaksi.Close;
+    Exit;
+  end;
+
   IDTransaksi := txtIDTransaksi.Text;
   IDLaporan := txtIDLaporan.Text;
   IDPengguna := txtGetIDPengguna.Text;
@@ -177,6 +242,14 @@ end;
 
 procedure TformTransaksi.dgTransaksiCellClick(Column: TColumn);
 begin
+  txtIDTransaksi.Enabled := False;
+  txtIDLaporan.Enabled := False;
+
+  btnTambah.Enabled := False;
+
+  btnUbah.Enabled := True;
+  btnHapus.Enabled := True;
+
   txtIDTransaksi.Text := formConnection.zqTransaksi.Fields[0].AsString;
   txtIDLaporan.Text := formConnection.zqTransaksi.Fields[1].AsString;
   dtpTanggal.DateTime := formConnection.zqTransaksi.Fields[2].AsDateTime;
@@ -208,6 +281,29 @@ end;
 procedure TformTransaksi.btnRptTransaksiClick(Sender: TObject);
 begin
   formConnection.frxRptTransaksi.ShowReport();
+end;
+
+procedure TformTransaksi.FormCreate(Sender: TObject);
+begin
+  Position := poScreenCenter;
+  btnUbah.Enabled := False;
+  btnHapus.Enabled := False;
+  txtHarga.Enabled := False;
+end;
+
+procedure TformTransaksi.btnBatalClick(Sender: TObject);
+begin
+  btnTambah.Enabled := False;
+  txtIDTransaksi.Enabled := True;
+  txtIDLaporan.Enabled := True;
+
+  txtIDTransaksi.Text := 'trx000';
+  txtIDLaporan.Text := 'lpr000';
+  txtNoTiket.Text := '000';
+  txtJumlah.Clear;
+  txtNmPlg.Clear;
+  txtNmMskp.Clear;
+  txtHarga.Clear;
 end;
 
 end.

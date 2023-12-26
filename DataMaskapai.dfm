@@ -2,7 +2,7 @@ object formDataMaskapai: TformDataMaskapai
   Left = 192
   Top = 125
   Width = 706
-  Height = 524
+  Height = 523
   Caption = 'Data Maskapai'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

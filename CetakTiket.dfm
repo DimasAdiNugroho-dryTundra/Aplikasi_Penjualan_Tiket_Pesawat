@@ -2,7 +2,7 @@ object formCetakTiket: TformCetakTiket
   Left = 254
   Top = 167
   Width = 591
-  Height = 540
+  Height = 548
   Caption = 'Cetak Tiket'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -194,7 +194,7 @@ object formCetakTiket: TformCetakTiket
   end
   object btnCetakTiket: TButton
     Left = 35
-    Top = 424
+    Top = 432
     Width = 217
     Height = 49
     Caption = 'Cetak Tiket'
@@ -209,7 +209,7 @@ object formCetakTiket: TformCetakTiket
   end
   object btnBackToMM: TButton
     Left = 307
-    Top = 424
+    Top = 432
     Width = 217
     Height = 49
     Caption = 'Kembali ke Main Menu'
@@ -224,7 +224,7 @@ object formCetakTiket: TformCetakTiket
   end
   object GroupBox2: TGroupBox
     Left = 32
-    Top = 256
+    Top = 264
     Width = 497
     Height = 145
     Caption = 'Silahkan Pilih No Tiket'
